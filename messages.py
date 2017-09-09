@@ -14,6 +14,7 @@ commands = {"!help": "Print these help messages.",
             "!penis, !dong, !dick, !schlong, !johnson, !bird, !weiner": "PENIS!"}
 
 async def message_check(client, message):
+    print(message.content)
     #Print commands that this bot knows
     if (message.content.startswith("!help")):
         for key,value in commands.items():
