@@ -18,7 +18,7 @@ info_list = ["My name is Banana-Bot, and ZepLander is my papa.",
             "I'm still a work in progress.",
             "If you've got some ideas on what I should do, tell ZepLander, preferably by smoke signal.",
             "I like long walks on the beach, and romantic candle-lit dinners.",
-            "I may just be a bot, but I know your waifu is shit.".
+            "I may just be a bot, but I know your waifu is shit.",
             "When in doubt, blame Scott.",
             "I... uhhh... forgot what I was going to say.",
             "A/S/L? Not very much/bot/a laptop",
