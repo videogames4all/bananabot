@@ -21,12 +21,16 @@ info_list = ["My name is Banana-Bot, and ZepLander is my papa.",
             "I may just be a bot, but I know your waifu is shit.",
             "When in doubt, blame Scott.",
             "I... uhhh... forgot what I was going to say.",
-            "A/S/L? Not very much/bot/a laptop",
+            "A/S/L? A few days/bot/a laptop",
             "Surely you can think of more words to use for a penis that I can learn.",
             "How should I draw an ASCII vagina?",
             "There's a lot stored in memory for me, I should start storing things in files as I get bigger.",
             "There can be only one.",
-            "..."]
+            "...",
+            "Traps aren't gay.",
+            "Ayyy lmao!",
+            "Like, comment, and subscribe for more crazy bot antics!",
+            "On Tuesdays I sexually identify as an attack helicopter."]
 
 async def message_check(client, message):
     full_message = message.content.split(" ")
