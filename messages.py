@@ -6,12 +6,10 @@ import asyncio
 import random
 
 commands = {"!help": "Print these help messages.",
-            "!test": "Print a test message.",
-            "!sleep": "Sleep for 5 seconds.",
             "!rule34": "Post a sexy image ;D",
             "!waifu": "Call someone's waifu shit.",
             "!banana": "Ooh! Banana!",
-            "!penis, !dong, !dick, !schlong, !johnson, !bird, !weiner, !cock": "PENIS!"}
+            "!penis, !dong, !dick, !schlong, !johnson, !bird, !weiner, !cock <length>": "PENIS!"}
 
 penis_commands = ["!penis", "!dong", "!dick", "!schlong", "!johnson", "!bird", "!weiner", "!cock"]
 
@@ -27,15 +25,6 @@ async def message_check(client, message):
         for key,value in commands.items():
             await client.send_message(message.channel, key + ": " + value)
 
-    #Print a test message
-    elif (command == "!test"):
-        await client.send_message(message.channel, "This has been a test of your local test bot.")
-
-    #Have it sleep for 5 seconds
-    elif (command == "!sleep"):
-        await asyncio.sleep(5)
-        await client.send_message(message.channel, "Done sleeping.")
-
     #"Post porn", except just outright call the user a pervert
     elif (command == "!rule34"):
         #Pull apart the author of the message
@@ -47,7 +36,7 @@ async def message_check(client, message):
     #Your waifu is shit
     elif (command == "!waifu"):
         await client.send_message(message.channel, ":poop: YOUR WAIFU IS SHIT! :poop:")
-        await asyncio.sleep(2)
+        await asyncio.sleep(2) #Wait 2 seconds for dramatic effect
         await client.send_message(message.channel, "SHIIIIITTTTTT!")
 
     #Ooh! Banana!
@@ -56,9 +45,35 @@ async def message_check(client, message):
 
     #Penis
     elif (command in penis_commands):
-        penis_length = random.randint(2,20)
-        penis = "8" + "=" * penis_length + "D"
-        await client.send_message(message.channel, penis)
+        #The most complicated command so far!
+        if (args != None):
+            #If there's an argument (just need the first one), see if we want a custom length
+            if (args[0].isdigit() == False):
+                #It's not a number, so just do the normal thaaang
+                penis_length = random.randint(2,20)
+                penis = "8" + "=" * penis_length + "D"
+                await client.send_message(message.channel, penis)
+
+            else:
+                #It's a number, let's get a penis going!
+                penis_length = args[0].split(".")
+                if (penis_length < 1):
+                    #At this point it's not even a penis
+                    await client.send_message(message.channel, "You can't have a penis that has no length, you might as well not have a penis!")
+
+                else:
+                    #Print out the user's desired (oh baby!) penis
+                    penis = "8" + "=" * penis_length + "D"
+                    await client.send_message(message.channel, penis)
+                    if (penis_length > 20):
+                        #Assuming one "=" is one inch, this is getting absurd even for porn
+                        await client.send_message(message.channel, "Good luck fitting that!")
+
+        else:
+            #Just a regular penis (is 20 inches reasonable for porn?)
+            penis_length = random.randint(2,20)
+            penis = "8" + "=" * penis_length + "D"
+            await client.send_message(message.channel, penis)
 
     return
 
