@@ -9,7 +9,7 @@ commands = {"!help": "Print these help messages.",
             "!rule34": "Post a sexy image ;D",
             "!waifu": "Call someone's waifu shit.",
             "!banana": "Ooh! Banana!",
-            "!penis, !dong, !dick, !schlong, !johnson, !bird, !weiner, !cock <length>": "PENIS!"}
+            "!penis, !dong, !dick, !schlong, !johnson, !bird, !weiner, !cock [<length>]": "PENIS!"}
 
 penis_commands = ["!penis", "!dong", "!dick", "!schlong", "!johnson", "!bird", "!weiner", "!cock"]
 
@@ -47,12 +47,10 @@ async def message_check(client, message):
     elif (command in penis_commands):
         #The most complicated command so far!
         if (args != None):
-            print(args)
-            print(args[0])
             #If there's an argument (just need the first one), see if we want a custom length
             if (args[0].isdigit() == False):
                 #It's not a number, so just do the normal thaaang
-                penis_length = random.randint(2,20)
+                penis_length = random.randint(2,12)
                 penis = "8" + "=" * penis_length + "D"
                 await client.send_message(message.channel, penis)
 
@@ -69,13 +67,13 @@ async def message_check(client, message):
                     #Print out the user's desired (oh baby!) penis
                     penis = "8" + "=" * penis_length + "D"
                     await client.send_message(message.channel, penis)
-                    if (penis_length > 20):
+                    if (penis_length > 12):
                         #Assuming one "=" is one inch, this is getting absurd even for porn
                         await client.send_message(message.channel, "Good luck fitting that!")
 
         else:
-            #Just a regular penis (is 20 inches reasonable for porn?)
-            penis_length = random.randint(2,20)
+            #Just a regular penis (is 12 inches still reasonable for porn?)
+            penis_length = random.randint(2,12)
             penis = "8" + "=" * penis_length + "D"
             await client.send_message(message.channel, penis)
 
