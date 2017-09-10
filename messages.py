@@ -47,6 +47,8 @@ async def message_check(client, message):
     elif (command in penis_commands):
         #The most complicated command so far!
         if (args != None):
+            print(args)
+            print(args[0])
             #If there's an argument (just need the first one), see if we want a custom length
             if (args[0].isdigit() == False):
                 #It's not a number, so just do the normal thaaang
@@ -57,6 +59,8 @@ async def message_check(client, message):
             else:
                 #It's a number, let's get a penis going!
                 penis_length = args[0].split(".")
+                penis_length = penis_length[0]
+                penis_length = int(penis_length)
                 if (penis_length < 1):
                     #At this point it's not even a penis
                     await client.send_message(message.channel, "You can't have a penis that has no length, you might as well not have a penis!")
