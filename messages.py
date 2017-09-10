@@ -9,9 +9,14 @@ commands = {"!help": "Print these help messages.",
             "!rule34": "Post a sexy image ;D",
             "!waifu": "Call someone's waifu shit.",
             "!banana": "Ooh! Banana!",
-            "!penis, !dong, !dick, !schlong, !johnson, !bird, !weiner, !cock [<length>]": "PENIS!"}
+            "!penis, !dong, !dick, !schlong, !johnson, !bird, !weiner, !cock [<length>]": "PENIS!",
+            "!about": "Print some info about this bot."}
 
 penis_commands = ["!penis", "!dong", "!dick", "!schlong", "!johnson", "!bird", "!weiner", "!cock"]
+
+info_list = ["My name is Banana-Bot, and ZepLander is my papa.",
+            "I'm still a work in progress.",
+            "If you've got some ideas on what I should do, tell ZepLander, preferably by smoke signal."]
 
 async def message_check(client, message):
     full_message = message.content.split(" ")
@@ -42,6 +47,11 @@ async def message_check(client, message):
     #Ooh! Banana!
     elif (command == "!banana"):
         await client.send_message(message.channel, "https://www.youtube.com/watch?v=z8WvSGNEV24")
+
+    #Share some info about this bot
+    elif (command == "!about"):
+        about_print = random.randint(0, len(info_list) -1)
+        await client.send_message(message.channel, info_list[about_print])
 
     #Penis
     elif (command in penis_commands):
