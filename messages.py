@@ -10,7 +10,9 @@ commands = {"!help": "Print these help messages.",
             "!waifu": "Call someone's waifu shit.",
             "!banana": "Ooh! Banana!",
             "!penis, !dong, !dick, !schlong, !johnson, !bird, !weiner, !cock [<length>]": "PENIS!",
-            "!about": "Print some info about this bot."}
+            "!about": "Print some info about this bot.",
+            "!adventure": "A work in progress simple adventure thing for each user.",
+            "!doc_chicken": "IT'S TIME FOR DOC CHICKEN YA'LL!"}
 
 penis_commands = ["!penis", "!dong", "!dick", "!schlong", "!johnson", "!bird", "!weiner", "!cock"]
 
@@ -30,7 +32,11 @@ info_list = ["My name is Banana-Bot, and ZepLander is my papa.",
             "Traps aren't gay.",
             "Ayyy lmao!",
             "Like, comment, and subscribe for more crazy bot antics!",
-            "On Tuesdays I sexually identify as an attack helicopter."]
+            "On Tuesdays I sexually identify as an attack helicopter.",
+            "Cuck"]
+
+doc_chicken_urls = ["https://www.youtube.com/watch?v=J-hRvCUMtIU",
+                    "https://www.youtube.com/watch?v=jT8F4wVxdCk"]
 
 async def message_check(client, message):
     full_message = message.content.split(" ")
@@ -100,6 +106,16 @@ async def message_check(client, message):
             penis_length = random.randint(2,12)
             penis = "8" + "=" * penis_length + "D"
             await client.send_message(message.channel, penis)
+
+    #Adventure
+    elif (command == "!adventure"):
+        await client.send_message(message.channel, "Working on it...")
+        print(message.author + " wants to adventure, should check for the file. (Should also make an adventure.py file for adventure stuff)")
+
+    #DOC CHICKEN!
+    elif (command == "!doc_chicken"):
+        doc_random = random.randint(0, len(doc_chicken_urls) - 1)
+        await client.send_message(message.channel, "IT'S TIME FOR DOC CHICKEN YA'LL! " + doc_chicken_urls[doc_random])
 
     return
 

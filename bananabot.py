@@ -41,10 +41,14 @@ async def on_message(message):
         elif message.content.startswith("!"):
             await messages.message_check(client, message) #Check messages.py for more detail
 
-#This line goes last, contains the token that let's the Discord servers know which bot is doing what
-with open("token.txt", "r") as token:
-    for line in token:
-        token_str = line.strip("\n")
-        break
-token.closed
-client.run(token_str)
+#This part goes last to connect the bot to Discord
+try:
+    #Try to open the file with the token in it
+    with open("token.txt", "r") as token:
+        for line in token:
+            token_str = line.strip("\n")
+            break
+    token.closed
+    client.run(token_str)
+except:
+    print("Error opening token.txt, exiting.")
