@@ -12,7 +12,8 @@ commands = {"!help": "Print these help messages.",
             "!penis, !dong, !dick, !schlong, !johnson, !bird, !weiner, !cock [<length>]": "PENIS!",
             "!about": "Print some info about this bot.",
             "!adventure": "A work in progress simple adventure thing for each user.",
-            "!doc_chicken": "IT'S TIME FOR DOC CHICKEN YA'LL!"}
+            "!doc_chicken": "IT'S TIME FOR DOC CHICKEN YA'LL!",
+            "!groot": "I am Groot."}
 
 penis_commands = ["!penis", "!dong", "!dick", "!schlong", "!johnson", "!bird", "!weiner", "!cock"]
 
@@ -33,10 +34,19 @@ info_list = ["My name is Banana-Bot, and ZepLander is my papa.",
             "Ayyy lmao!",
             "Like, comment, and subscribe for more crazy bot antics!",
             "On Tuesdays I sexually identify as an attack helicopter.",
-            "Cuck"]
+            "Cuck",
+            "Fuck this, fuck you, fuck me, and fuck it all."]
 
 doc_chicken_urls = ["https://www.youtube.com/watch?v=J-hRvCUMtIU",
                     "https://www.youtube.com/watch?v=jT8F4wVxdCk"]
+
+groot = ["I am Groot.",
+        "I am Groot!",
+        "I am GROOT!",
+        "I, am Groot.",
+        "We are Groot.",
+        "i am groot",
+        "1 4m Gr007"]
 
 async def message_check(client, message):
     full_message = message.content.split(" ")
@@ -116,6 +126,11 @@ async def message_check(client, message):
     elif (command == "!doc_chicken"):
         doc_random = random.randint(0, len(doc_chicken_urls) - 1)
         await client.send_message(message.channel, "IT'S TIME FOR DOC CHICKEN YA'LL! " + doc_chicken_urls[doc_random])
+
+    #I am Groot
+    elif (command == "!groot"):
+        groot_random = random.randint(0, len(groot) - 1)
+        await client.send_message(message.channel, groot[groot_random], tts=True)
 
     return
 
