@@ -5,6 +5,9 @@ import asyncio
 #For random numbers
 import random
 
+#For the pokeapi
+import pokemon
+
 commands = {"!help": "Print these help messages.",
             "!rule34": "Post a sexy image ;D",
             "!waifu": "Call someone's waifu shit.",
@@ -13,7 +16,8 @@ commands = {"!help": "Print these help messages.",
             "!about": "Print some info about this bot.",
             "!adventure": "A work in progress simple adventure thing for each user.",
             "!doc_chicken": "IT'S TIME FOR DOC CHICKEN YA'LL!",
-            "!groot": "I am Groot."}
+            "!groot": "I am Groot.",
+            "!pokemon": "Get information on a Pokemon (work in progress)"}
 
 penis_commands = ["!penis", "!dong", "!dick", "!schlong", "!johnson", "!bird", "!weiner", "!cock"]
 
@@ -131,6 +135,11 @@ async def message_check(client, message):
     elif (command == "!groot"):
         groot_random = random.randint(0, len(groot) - 1)
         await client.send_message(message.channel, groot[groot_random], tts=True)
+
+    #Gotta catch 'em all!
+    elif (command == "!pokemon"):
+        await client.send_message(message.channel, "Working on it...")
+        #pokemon.function(client, message)
 
     return
 
