@@ -32,6 +32,6 @@ async def pokemon_get(client, message, args):
     data = response.json()
     output = data['name'].title() + ": #" + str(data['id'])
     print(output)
-    await client.send_message(message.channel, print(output))
+    await client.send_message(message.channel, output)
 
     conn.close()
