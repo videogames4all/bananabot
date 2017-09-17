@@ -20,17 +20,17 @@ async def pokemon_get(client, message, args):
     data = res.read()
     obj = json.loads(data.decode("utf-8"))
 
+    pokemon = None
     if (args == None):
-        poke_random = random.randint(1, 802)
-        url = "http://pokeapi.co/api/v2/pokemon/" + str(poke_random) + "/"
-        payload = ""
-        response = requests.request("GET", url, data=payload)
-        data = response.json()
-        print(data['name'].title())
-
-        await client.send_message(message.channel, data['name'].title())
+        pokemon = random.randint(1, 802)
 
     else:
-        await client.send_message(message.channel, "Still need to add argument support")
+        pokemon = args[0]
+
+    url = "http://pokeapi.co/api/v2/pokemon/" + str(pokemon) + "/"
+    response = requests.request("GET", url, data=payload)
+    data = response.json()
+    print(data['name'].title())
+    await client.send_message(message.channel, data['name'].title())
 
     conn.close()
