@@ -138,8 +138,7 @@ async def message_check(client, message):
 
     #Gotta catch 'em all!
     elif (command == "!pokemon"):
-        await client.send_message(message.channel, "Working on it...")
-        #pokemon.function(client, message)
+        await pokemon.pokemon_get(client, message, args)
 
     return
 
