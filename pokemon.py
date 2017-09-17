@@ -30,7 +30,8 @@ async def pokemon_get(client, message, args):
     url = "http://pokeapi.co/api/v2/pokemon/" + str(pokemon) + "/"
     response = requests.request("GET", url, data=payload)
     data = response.json()
-    print(data['name'].title())
-    await client.send_message(message.channel, data['name'].title())
+    output = data['name'].title() + ": #" + str(data['id'])
+    print(output)
+    await client.send_message(message.channel, print(output))
 
     conn.close()
