@@ -17,7 +17,7 @@ commands = {"!help": "Print these help messages.",
             "!adventure": "A work in progress simple adventure thing for each user.",
             "!doc_chicken": "IT'S TIME FOR DOC CHICKEN YA'LL!",
             "!groot": "I am Groot.",
-            "!pokemon": "Get information on a Pokemon (work in progress)"}
+            "!pokemon": "Get information on a Pokemon (still working on it)"}
 
 penis_commands = ["!penis", "!dong", "!dick", "!schlong", "!johnson", "!bird", "!weiner", "!cock"]
 
@@ -28,7 +28,7 @@ info_list = ["My name is Banana-Bot, and ZepLander is my papa.",
             "I may just be a bot, but I know your waifu is shit.",
             "When in doubt, blame Scott.",
             "I... uhhh... forgot what I was going to say.",
-            "A/S/L? A few days/bot/a laptop",
+            "A/S/L? A little while/bot/a laptop",
             "Surely you can think of more words to use for a penis that I can learn.",
             "How should I draw an ASCII vagina?",
             "There's a lot stored in memory for me, I should start storing things in files as I get bigger.",

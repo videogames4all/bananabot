@@ -26,9 +26,9 @@ async def pokemon_get(client, message, args):
         payload = ""
         response = requests.request("GET", url, data=payload)
         data = response.json()
-        print(data['forms'][0]['name'])
+        print(data['name'].title())
 
-        await client.send_message(message.channel, data['forms'][0]['name'])
+        await client.send_message(message.channel, data['name'].title())
 
     else:
         await client.send_message(message.channel, "Still need to add argument support")
