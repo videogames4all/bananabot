@@ -16,7 +16,7 @@ import sys
 async def pokemon_get(client, message, args):
     poke_num = None
     if (args == None):
-        poke_num = str(random.randint(1, 802))
+        poke_num = str(random.randint(0, 802))
 
     else:
         poke_num = args[0]
@@ -37,6 +37,8 @@ async def pokemon_get(client, message, args):
                 type_string = str(pokemon.types[0].type).title() + "/" + str(pokemon.types[1].type).title() + " type."
             else:
                 type_string = str(pokemon.types[0].type).title() + " type."
+
+            #Add something for evolutionary line. pulls evolves_from_species and evolution_chain
 
             poke_string = poke_string + type_string
 
