@@ -16,7 +16,7 @@ import sys
 async def pokemon_get(client, message, args):
     poke_num = None
     if (args == None):
-        poke_num = str(random.randint(0, 802))
+        poke_num = str(random.randint(0, 807))
 
     else:
         poke_num = args[0]
