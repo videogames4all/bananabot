@@ -8,16 +8,19 @@ import random
 #For the pokeapi
 import pokemon
 
+#For Mulligan Dice Golf
+import mdg
+
 commands = {"!help": "Print these help messages.",
             "!rule34": "Post a sexy image ;D",
             "!waifu": "Call someone's waifu shit.",
             "!banana": "Ooh! Banana!",
             "!penis, !dong, !dick, !schlong, !johnson, !bird, !weiner, !cock [<length>]": "PENIS!",
             "!about": "Print some info about this bot.",
-            "!adventure": "A work in progress simple adventure thing for each user.",
             "!doc_chicken": "IT'S TIME FOR DOC CHICKEN YA'LL!",
             "!groot": "I am Groot.",
-            "!pokemon": "Get information on a Pokemon (still working on it)"}
+            "!pokemon": "Get information on a Pokemon (still working on it)",
+            "!mdg": "Play a hole of Mulligan Dice Golf (work in progress)"}
 
 penis_commands = ["!penis", "!dong", "!dick", "!schlong", "!johnson", "!bird", "!weiner", "!cock"]
 
@@ -121,11 +124,6 @@ async def message_check(client, message):
             penis = "8" + "=" * penis_length + "D"
             await client.send_message(message.channel, penis)
 
-    #Adventure
-    elif (command == "!adventure"):
-        await client.send_message(message.channel, "Working on it...")
-        print(message.author + " wants to adventure, should check for the file. (Should also make an adventure.py file for adventure stuff)")
-
     #DOC CHICKEN!
     elif (command == "!doc_chicken"):
         doc_random = random.randint(0, len(doc_chicken_urls) - 1)
@@ -139,6 +137,10 @@ async def message_check(client, message):
     #Gotta catch 'em all!
     elif (command == "!pokemon"):
         await pokemon.pokemon_get(client, message, args)
+
+    #Play a round of Mulligan Dice Golf
+    elif (command == "!mdg"):
+        await mdg.mdg_game(client, message)
 
     return
 
