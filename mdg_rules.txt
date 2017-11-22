@@ -1,0 +1,47 @@
+Mulligan Dice Golf:
+Holes:
+1: Par 4 - 427 yards
+2: Par 4 - 398 yards
+3: Par 3 - 206 yards
+4: Par 4 - 341 yards
+5: Par 5 - 583 yards
+6: Par 3 - 167 yards
+7: Par 4 - 448 yards
+8: Par 5 - 532 yards
+9: Par 4 - 422 yards
+10: Par 4 - 382 yards
+11: Par 3 - 182 yards
+12: Par 4 - 429 yards
+13: Par 5 - 577 yards
+14: Par 4 - 384 yards
+15: Par 3 - 218 yards
+16: Par 4 - 454 yards
+17: Par 4 - 472 yards
+18: Par 5 - 604 yards
+Par 3 uses: Yellow, Green, Blue
+Par 4 uses: Black, White, Green, Blue
+Par 5 uses: Black, Orange, White, Green, Blue
+Black: d10, 6 fairways, 2 roughs, 2 hazards
+White: d10, 5 greens, 2 chips, 1 bunker, 1 hazard, 1 tap in
+Orange: d10, 3 greens, 5 fairways, 2 roughs
+Yellow: d10, 5 greens, 2 chips, 1 hazard, 2 bunkers
+Green: d12, 4 ones, 5 twos, 3 threes,
+Blue: d12, 10 blank, 1 sun, 1 wind
+6 shot mulligans per player (re-roll any dice but the blue dice)
+1 hole mulligan
+1 styme
+No mulligans if stymied.
+Styme if double bogey, pass to someone. Styme is available after stymied rolls. No re-styming, no styming while styme is already out.
+Stroke legend:
+Fairway = 1 stroke
+Green = 1 stroke
+Rough = 2 strokes
+Chip = 2 strokes
+Bunker = 2 strokes
+Hazard = 3 strokes
+Green die is the putter, face value strokes
+Sun subtracts 1 stroke
+Wind adds 1 stroke
+On orange die, roll a green, 1 stroke, ignore white die
+On white die, roll a tap in, 2 strokes, ignore green/putter die
+If both orange green and white tap in, ignore white tap in
