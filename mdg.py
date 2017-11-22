@@ -22,7 +22,7 @@ def black_die():
 def white_die():
     shot = random.randint(1,10) #Returns 1-10. 1-5 = green, 6-7 = chip, 8 = bunker, 9 = hazard, 10 = tap in
     if (shot <= 5):
-        return "green"
+        return "green" #1 stroke
 
     elif (shot <= 7):
         return "chip" #2 strokes
@@ -138,7 +138,55 @@ def hole(par_in=0):
         white = white_die()
         green = green_die()
         blue = blue_die()
-        return ""
+
+        strokes = 0
+        #Handle the black die
+        if (black == "fairway"):
+            strokes += 1
+
+        elif (black == "rough"):
+            strokes += 2
+
+        else:
+            strokes += 3
+
+        #Handle the white die
+        ignore_green = False
+        if (white == "green"):
+            strokes += 1
+
+        elif (white == "chip"):
+            strokes += 2
+
+        elif (white == "bunker"):
+            strokes += 2
+
+        elif (white == "hazard"):
+            strokes += 3
+
+        else:
+            strokes += 2
+            ignore_green = True #Tapped in!
+
+        #Handle the green die
+        if (ignore_green == False):
+            if (green == "one"):
+                strokes += 1
+
+            elif (green == "two"):
+                strokes += 2
+
+            else:
+                strokes += 3
+
+        #Handle the blue die
+        if (blue == "sun"):
+            strokes -= 1
+
+        elif (blue == "wind"):
+            strokes += 1
+
+        return "Par 4: " + str(strokes)
 
     elif (par == 5):
         #Roll the black, orange, white, green, and blue dies
@@ -147,12 +195,73 @@ def hole(par_in=0):
         white = white_die()
         green = green_die()
         blue = blue_die()
-        return ""
+
+        strokes = 0
+        #Handle the black die
+        if (black == "fairway"):
+            strokes += 1
+
+        elif (black == "rough"):
+            strokes += 2
+
+        else:
+            strokes += 3
+
+        #Handle the orange die
+        ignore_white = False
+        if (orange == "green"):
+            strokes += 1
+            ignore_white = True
+
+        elif (orange == "fairway"):
+            strokes += 1
+
+        else:
+            strokes += 2
+
+        #Handle the white die
+        ignore_green = False
+        if (ignore_white == False):
+            if (white == "green"):
+                strokes += 1
+
+            elif (white == "chip"):
+                strokes += 2
+
+            elif (white == "bunker"):
+                strokes += 2
+
+            elif (white == "hazard"):
+                strokes += 3
+
+            else:
+                strokes += 2
+                ignore_green = True #Tapped in!
+
+        #Handle the green die
+        if (ignore_green == False):
+            if (green == "one"):
+                strokes += 1
+
+            elif (green == "two"):
+                strokes += 2
+
+            else:
+                strokes += 3
+
+        #Handle the blue die
+        if (blue == "sun"):
+            strokes -= 1
+
+        elif (blue == "wind"):
+            strokes += 1
+
+        return "Par 5: " + str(strokes)
 
     else:
         return "bad par, 1-zillion stroke penalty"
 
 #Play a hole of Mulligan Dice Golf
 async def mdg_game(client, message):
-    results = hole(3)
+    results = hole()
     await client.send_message(message.channel, results)
