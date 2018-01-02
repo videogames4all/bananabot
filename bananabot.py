@@ -41,6 +41,9 @@ async def on_message(message):
         elif message.content.startswith("!"):
             await messages.message_check(client, message) #Check messages.py for more detail
 
+        #Loss
+        elif ("loss" in message.content):
+            await client.send_message(message.channel, "|    |   ||\n---+---\n||   |   |_")
 #This part goes last to connect the bot to Discord
 try:
     #Try to open the file with the token in it
