@@ -44,6 +44,10 @@ async def on_message(message):
         #Loss
         elif ("loss" in message.content):
             await client.send_message(message.channel, "|    |   ||\n---+---\n||   |   |_")
+
+        #Eggplant emoji
+        elif (message.content.lower() == "fuck"):
+            await client.add_reaction(message, "\U0001F346")
 #This part goes last to connect the bot to Discord
 try:
     #Try to open the file with the token in it
