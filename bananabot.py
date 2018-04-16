@@ -3,6 +3,8 @@ import discord
 import asyncio
 #messages.py for where I put my stuff
 import messages
+#For fuck
+import random
 
 #Super admin of bot
 SUPER_ADMIN = "ZepLander#1497" #Das me
@@ -47,7 +49,11 @@ async def on_message(message):
 
         #Eggplant emoji
         elif (message.content.lower() == "fuck"):
-            await client.add_reaction(message, "\U0001F346")
+            chance = random.randint(1,10)
+            if (chance == 1):
+                await client.add_reaction(message, "\U0001F3E9")
+            else:
+                await client.add_reaction(message, "\U0001F346")
 #This part goes last to connect the bot to Discord
 try:
     #Try to open the file with the token in it
