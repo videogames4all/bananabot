@@ -54,6 +54,12 @@ async def on_message(message):
                 await client.add_reaction(message, "\U0001F3E9")
             else:
                 await client.add_reaction(message, "\U0001F346")
+
+        #Banana by Toto
+        elif ("toto" in message.content.lower()):
+            author = str(message.author).split("#")
+            author = author[0]
+            await client.send_message(message.channel, str(message.author.mention) + " https://youtu.be/LEnVwL01qKo")
 #This part goes last to connect the bot to Discord
 try:
     #Try to open the file with the token in it
