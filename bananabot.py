@@ -54,6 +54,10 @@ async def on_message(message):
             else:
                 await message.add_reaction("\U0001F346")
 
+        #Oh shit, a rat
+        elif (message.content.lower() == "oh shit"):
+            await message.add_reaction("\U0001F400")
+
         #Banana by Toto
         elif ("toto" in message.content.lower()):
             author = str(message.author).split("#")

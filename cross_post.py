@@ -10,7 +10,7 @@ async def check(client, message):
     ch = message.channel
     #Check that the message was in a certain channel in a certain server
     if (message.channel.id in channels_cross_post):
-        print(message.content)
+        #print(message.content)
         #Need to clean the message first, remove hyperlinks, and preface with who said what.
         link_less = remove_hyperlinks(str(message.content))
         #But don't send the message if there's nothing but a link in it
