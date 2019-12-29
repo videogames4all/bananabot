@@ -5,6 +5,8 @@ import asyncio
 import messages
 #For fuck
 import random
+#For cross-posting between channels
+import cross_post
 
 #Super admin of bot
 SUPER_ADMIN = "ZepLander#1497" #Das me
@@ -60,6 +62,10 @@ async def on_message(message):
             author = str(message.author).split("#")
             author = author[0]
             await client.send_message(message.channel, str(message.author.mention) + " https://youtu.be/LEnVwL01qKo")
+
+        #Cross-post check
+        await cross_post.check(client, message)
+
 #This part goes last to connect the bot to Discord
 try:
     #Try to open the file with the token in it
