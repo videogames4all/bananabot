@@ -264,4 +264,5 @@ def hole(par_in=0):
 #Play a hole of Mulligan Dice Golf
 async def mdg_game(client, message):
     results = hole()
-    await client.send_message(message.channel, results)
+    ch = message.channel
+    await ch.send(results)

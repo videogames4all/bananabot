@@ -14,6 +14,7 @@ import sys
 
 #Look at the info passed and grab info on the Pokemon wanted
 async def pokemon_get(client, message, args):
+    ch = message.channel
     poke_num = None
     if (args == None):
         poke_num = str(random.randint(0, 807))
@@ -43,8 +44,8 @@ async def pokemon_get(client, message, args):
             poke_string = poke_string + type_string
 
         #Send the message
-        await client.send_message(message.channel, poke_string)
+        await ch.send(poke_string)
 
     except:
         traceback.print_exc()
-        await client.send_message(message.channel, sys.exc_info()[0])
+        await ch.send(sys.exc_info()[0])

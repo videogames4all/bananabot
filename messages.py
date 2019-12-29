@@ -56,6 +56,7 @@ groot = ["I am Groot.",
         "1 4m Gr007"]
 
 async def message_check(client, message):
+    ch = message.channel
     full_message = message.content.split(" ")
     command = full_message[0]
     args = None
@@ -65,7 +66,7 @@ async def message_check(client, message):
     #Print commands that this bot knows
     if (command == "!help"):
         for key,value in commands.items():
-            await client.send_message(message.channel, key + ": " + value)
+            await ch.send(key + ": " + value)
 
     #"Post porn", except just outright call the user a pervert
     elif (command == "!rule34"):
@@ -73,22 +74,22 @@ async def message_check(client, message):
         author = str(message.author).split("#")
         author = author[0]
         #And call them a perv
-        await client.send_message(message.channel, author + " is a fuckin' perv.", tts=True)
+        await ch.send(author + " is a fuckin' perv.", tts=True)
 
     #Your waifu is shit
     elif (command == "!waifu"):
-        await client.send_message(message.channel, ":poop: YOUR WAIFU IS SHIT! :poop:")
+        await ch.send(":poop: YOUR WAIFU IS SHIT! :poop:")
         await asyncio.sleep(2) #Wait 2 seconds for dramatic effect
-        await client.send_message(message.channel, "SHIIIIITTTTTT!")
+        await ch.send("SHIIIIITTTTTT!")
 
     #Ooh! Banana!
     elif (command == "!banana"):
-        await client.send_message(message.channel, "https://www.youtube.com/watch?v=z8WvSGNEV24")
+        await ch.send("https://www.youtube.com/watch?v=z8WvSGNEV24")
 
     #Share some info about this bot
     elif (command == "!about"):
         about_print = random.randint(0, len(info_list) -1)
-        await client.send_message(message.channel, info_list[about_print])
+        await ch.send(info_list[about_print])
 
     #Penis
     elif (command in penis_commands):
@@ -99,7 +100,7 @@ async def message_check(client, message):
                 #It's not a number, so just do the normal thaaang
                 penis_length = random.randint(2,12)
                 penis = "8" + "=" * penis_length + "D"
-                await client.send_message(message.channel, penis)
+                await ch.send(penis)
 
             else:
                 #It's a number, let's get a penis going!
@@ -108,31 +109,31 @@ async def message_check(client, message):
                 penis_length = int(penis_length)
                 if (penis_length < 1):
                     #At this point it's not even a penis
-                    await client.send_message(message.channel, "You can't have a penis that has no length, you might as well not have a penis!")
+                    await ch.send("You can't have a penis that has no length, you might as well not have a penis!")
 
                 else:
                     #Print out the user's desired (oh baby!) penis
                     penis = "8" + "=" * penis_length + "D"
-                    await client.send_message(message.channel, penis)
+                    await ch.send(penis)
                     if (penis_length > 12):
                         #Assuming one "=" is one inch, this is getting absurd even for porn
-                        await client.send_message(message.channel, "Good luck fitting that!")
+                        await ch.send("Good luck fitting that!")
 
         else:
             #Just a regular penis (is 12 inches still reasonable for porn?)
             penis_length = random.randint(2,12)
             penis = "8" + "=" * penis_length + "D"
-            await client.send_message(message.channel, penis)
+            await ch.send(penis)
 
     #DOC CHICKEN!
     elif (command == "!doc_chicken"):
         doc_random = random.randint(0, len(doc_chicken_urls) - 1)
-        await client.send_message(message.channel, "IT'S TIME FOR DOC CHICKEN YA'LL! " + doc_chicken_urls[doc_random])
+        await ch.send("IT'S TIME FOR DOC CHICKEN YA'LL! " + doc_chicken_urls[doc_random])
 
     #I am Groot
     elif (command == "!groot"):
         groot_random = random.randint(0, len(groot) - 1)
-        await client.send_message(message.channel, groot[groot_random], tts=True)
+        await ch.send(groot[groot_random], tts=True)
 
     #Gotta catch 'em all!
     elif (command == "!pokemon"):

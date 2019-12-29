@@ -25,13 +25,14 @@ async def on_ready():
 #Anytime a message is added, check to see if it's important
 @client.event
 async def on_message(message):
+    ch = message.channel
     #Make sure BananaBot isn't the one sending the message
     if (client.user != message.author):
         #If !quit, the bot will exit if the message author is the SUPER_ADMIN
         if message.content.startswith("!quit"):
             #Check to see if I'm the one that told it to quit
             if (str(message.author) == SUPER_ADMIN):
-                await client.send_message(message.channel, "Bye!")
+                await ch.send("Bye!")
                 await client.logout()
                 await client.close()
                 return
@@ -39,29 +40,25 @@ async def on_message(message):
             else:
                 author = str(message.author).split("#")
                 author = author[0]
-                await client.send_message(message.channel, "You can't make me quit, " + author)
+                await ch.send("You can't make me quit, " + author)
 
         #Other commands go here
         elif message.content.startswith("!"):
             await messages.message_check(client, message) #Check messages.py for more detail
 
-        #Loss
-        elif ("loss" in message.content):
-            await client.send_message(message.channel, "|    |   ||\n---+---\n||   |   |_")
-
         #Eggplant emoji
         elif (message.content.lower() == "fuck"):
             chance = random.randint(1,10)
             if (chance == 1):
-                await client.add_reaction(message, "\U0001F3E9")
+                await message.add_reaction("\U0001F3E9")
             else:
-                await client.add_reaction(message, "\U0001F346")
+                await message.add_reaction("\U0001F346")
 
         #Banana by Toto
         elif ("toto" in message.content.lower()):
             author = str(message.author).split("#")
             author = author[0]
-            await client.send_message(message.channel, str(message.author.mention) + " https://youtu.be/LEnVwL01qKo")
+            await ch.send(str(message.author.mention) + " https://youtu.be/LEnVwL01qKo")
 
         #Cross-post check
         await cross_post.check(client, message)
