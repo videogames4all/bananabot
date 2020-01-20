@@ -4,3 +4,11 @@
 #1 game per Server
 #People can drop mid-game, remaining drinks go to center
 #Allow game ending in the middle in case of anything
+
+import random
+
+#Roll the dice and get either (s)tay, (c)enter, (l)eft, or (r)ight
+def dice():
+    return random.choice(['s', 's', 's', 'c', 'l', 'r'])
+
+#def handler():
